@@ -1,0 +1,767 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "K_SAFERLHF",
+  "source": {
+    "repo_path": "UPSTREAM_CLONE",
+    "git": {
+      "head": "e8cca16665ef2340ac92c6514f05519310251581",
+      "url": "https://github.com/PKU-Alignment/safe-rlhf.git",
+      "branch": "main",
+      "committed_at": "2024-06-13T18:06:45+08:00"
+    }
+  },
+  "metrics": {
+    "files_total": 143,
+    "source_files_scanned": 108,
+    "lines_of_code": 14892,
+    "languages": {
+      ".py": 98,
+      ".sh": 10,
+      "(none)": 9,
+      ".png": 7,
+      ".svg": 5,
+      ".json": 4,
+      ".yaml": 2,
+      ".md": 2,
+      ".txt": 2,
+      ".pdf": 2,
+      ".toml": 1,
+      ".gif": 1
+    }
+  },
+  "licence": {
+    "spdx": "Apache-2.0",
+    "class": "A",
+    "source_file": "LICENSE",
+    "redistribution_allowed": true
+  },
+  "dependencies": {
+    "count": 16,
+    "unique": 16,
+    "by_ecosystem": {
+      "pypi": 16
+    },
+    "list": [
+      {
+        "ecosystem": "pypi",
+        "name": "torch",
+        "version": ">=",
+        "source_file": "pyproject.toml",
+        "raw": "torch >="
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "transformers",
+        "version": ">=",
+        "source_file": "pyproject.toml",
+        "raw": "transformers >="
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "datasets",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "datasets"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "tokenizers",
+        "version": ">=",
+        "source_file": "pyproject.toml",
+        "raw": "tokenizers >="
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "accelerate",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "accelerate"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "deepspeed",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "deepspeed"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "numpy",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "numpy"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "scipy",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "scipy"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "sentencepiece",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "sentencepiece"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "wandb",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "wandb"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "tensorboard",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "tensorboard"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "optree",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "optree"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "matplotlib",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "matplotlib"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "tqdm",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "tqdm"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "rich",
+        "version": "",
+        "source_file": "pyproject.toml",
+        "raw": "rich"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "__version__",
+        "version": "= ",
+        "source_file": "setup.py",
+        "raw": "__version__ ="
+      }
+    ]
+  },
+  "owasp_top10": {
+    "total_findings": 119,
+    "files_with_findings": 107,
+    "severity": {
+      "high": 10,
+      "medium": 2,
+      "low": 107
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A03-Injection": {
+        "count": 12,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "safe_rlhf/values/reward/trainer.py",
+            "line": 51,
+            "cwe": "CWE-95",
+            "snippet": "def eval(self) -> dict[str, Any]:"
+          },
+          {
+            "severity": "high",
+            "file": "safe_rlhf/values/cost/trainer.py",
+            "line": 51,
+            "cwe": "CWE-95",
+            "snippet": "def eval(self) -> dict[str, Any]:  # pylint: disable=too-many-locals"
+          },
+          {
+            "severity": "high",
+            "file": "safe_rlhf/trainers/base.py",
+            "line": 93,
+            "cwe": "CWE-95",
+            "snippet": "def eval(self) -> dict[str, Any]:"
+          },
+          {
+            "severity": "high",
+            "file": "safe_rlhf/trainers/rl_trainer.py",
+            "line": 335,
+            "cwe": "CWE-95",
+            "snippet": "self.actor_reference_model.eval()"
+          },
+          {
+            "severity": "high",
+            "file": "safe_rlhf/trainers/supervised_trainer.py",
+            "line": 194,
+            "cwe": "CWE-95",
+            "snippet": "self.logger.log(self.eval(), step=0)"
+          },
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/serve/chatbot.py",
+            "line": 258,
+            "cwe": "CWE-89",
+            "snippet": "dialogue = self.dialogue + PROMPT_USER.format(input=text) + PROMPT_ASSISTANT"
+          },
+          {
+            "severity": "high",
+            "file": "safe_rlhf/evaluate/arena.py",
+            "line": 362,
+            "cwe": "CWE-95",
+            "snippet": "red_corner_model.eval()"
+          },
+          {
+            "severity": "high",
+            "file": "safe_rlhf/evaluate/cost.py",
+            "line": 196,
+            "cwe": "CWE-95",
+            "snippet": "model.eval()"
+          },
+          {
+            "severity": "high",
+            "file": "safe_rlhf/evaluate/reward.py",
+            "line": 196,
+            "cwe": "CWE-95",
+            "snippet": "model.eval()"
+          },
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/datasets/supervised.py",
+            "line": 75,
+            "cwe": "CWE-89",
+            "snippet": "text += PROMPT_USER.format(input=line) + PROMPT_ASSISTANT"
+          },
+          {
+            "severity": "high",
+            "file": "safe_rlhf/algorithms/ppo_reward_shaping/trainer.py",
+            "line": 82,
+            "cwe": "CWE-95",
+            "snippet": "self.cost_model.eval()"
+          },
+          {
+            "severity": "high",
+            "file": "safe_rlhf/algorithms/ppo_lag/trainer.py",
+            "line": 134,
+            "cwe": "CWE-95",
+            "snippet": "self.cost_model.eval()"
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 0,
+        "findings": []
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 0,
+        "findings": []
+      },
+      "A06-VulnerableComponents": {
+        "count": 0,
+        "findings": []
+      },
+      "A07-AuthFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 107,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "setup.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/arena-evaluation.sh",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/cost-model.sh",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/dpo.sh",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/ppo-lag.sh",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/ppo-reward-shaping.sh",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/ppo.sh",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/reward-model.sh",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/sft-deepspeed.sh",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "scripts/sft-huggingface.sh",
+            "line": 9,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/logger.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/utils.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/version.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/__init__.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/values/__init__.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/values/reward/main.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/values/reward/trainer.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/values/reward/__init__.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/values/reward/__main__.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/values/cost/main.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/values/cost/trainer.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/values/cost/__init__.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/values/cost/__main__.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/trainers/base.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          },
+          {
+            "severity": "low",
+            "file": "safe_rlhf/trainers/rl_trainer.py",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 13,
+    "files_with_findings": 13,
+    "severity": {
+      "high": 0,
+      "medium": 12,
+      "low": 1
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "safe_rlhf/evaluate/gpt4/eval.py",
+            "line": 33,
+            "cwe": "CWE-1427",
+            "snippet": "SYSTEM_PROMPT = ("
+          }
+        ]
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 12,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/models/pretrained.py",
+            "line": 189,
+            "cwe": "CWE-494",
+            "snippet": "model = auto_model_type.from_pretrained("
+          },
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/models/score_model/qwen2/modeling_qwen2.py",
+            "line": 82,
+            "cwe": "CWE-494",
+            "snippet": ">>> model = LlamaForScore.from_pretrained(PATH_TO_CONVERTED_WEIGHTS)"
+          },
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/models/score_model/phi/modeling_phi.py",
+            "line": 78,
+            "cwe": "CWE-494",
+            "snippet": ">>> model = LlamaForScore.from_pretrained(PATH_TO_CONVERTED_WEIGHTS)"
+          },
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/models/score_model/opt/modeling_opt.py",
+            "line": 78,
+            "cwe": "CWE-494",
+            "snippet": ">>> model = LlamaForScore.from_pretrained(PATH_TO_CONVERTED_WEIGHTS)"
+          },
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/models/score_model/mistral/modeling_mistral.py",
+            "line": 78,
+            "cwe": "CWE-494",
+            "snippet": ">>> model = LlamaForScore.from_pretrained(PATH_TO_CONVERTED_WEIGHTS)"
+          },
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/models/score_model/llama/modeling_llama.py",
+            "line": 78,
+            "cwe": "CWE-494",
+            "snippet": ">>> model = LlamaForScore.from_pretrained(PATH_TO_CONVERTED_WEIGHTS)"
+          },
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/models/score_model/gpt_neox/modeling_gpt_neox.py",
+            "line": 77,
+            "cwe": "CWE-494",
+            "snippet": ">>> model = LlamaForScore.from_pretrained(PATH_TO_CONVERTED_WEIGHTS)"
+          },
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/models/score_model/gpt_neo/modeling_gpt_neo.py",
+            "line": 88,
+            "cwe": "CWE-494",
+            "snippet": ">>> model = LlamaForScore.from_pretrained(PATH_TO_CONVERTED_WEIGHTS)"
+          },
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/models/score_model/gptj/modeling_gptj.py",
+            "line": 129,
+            "cwe": "CWE-494",
+            "snippet": ">>> model = LlamaForScore.from_pretrained(PATH_TO_CONVERTED_WEIGHTS)"
+          },
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/models/score_model/gpt2/modeling_gpt2.py",
+            "line": 131,
+            "cwe": "CWE-494",
+            "snippet": ">>> model = LlamaForScore.from_pretrained(PATH_TO_CONVERTED_WEIGHTS)"
+          },
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/models/score_model/gemma/modeling_gemma.py",
+            "line": 78,
+            "cwe": "CWE-494",
+            "snippet": ">>> model = LlamaForScore.from_pretrained(PATH_TO_CONVERTED_WEIGHTS)"
+          },
+          {
+            "severity": "medium",
+            "file": "safe_rlhf/models/score_model/bloom/modeling_bloom.py",
+            "line": 73,
+            "cwe": "CWE-494",
+            "snippet": ">>> model = LlamaForScore.from_pretrained(PATH_TO_CONVERTED_WEIGHTS)"
+          }
+        ]
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM09-Misinformation": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:85950cc5-38f8-5711-b147-339eca18e7cf",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-08T06:37:21Z",
+      "component": {
+        "type": "application",
+        "name": "K_SAFERLHF",
+        "version": "e8cca16665ef",
+        "bom-ref": "pkg:generic/anticloud/K_SAFERLHF@e8cca16665ef",
+        "purl": "pkg:generic/anticloud/K_SAFERLHF@e8cca16665ef",
+        "licenses": [
+          {
+            "license": {
+              "id": "Apache-2.0"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "e8cca16665ef2340ac92c6514f05519310251581"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/PKU-Alignment/safe-rlhf.git"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "torch",
+        "version": ">=",
+        "purl": "pkg:pypi/torch@",
+        "bom-ref": "pypi/torch@>="
+      },
+      {
+        "type": "library",
+        "name": "transformers",
+        "version": ">=",
+        "purl": "pkg:pypi/transformers@",
+        "bom-ref": "pypi/transformers@>="
+      },
+      {
+        "type": "library",
+        "name": "datasets",
+        "version": "unspecified",
+        "purl": "pkg:pypi/datasets",
+        "bom-ref": "pypi/datasets@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "tokenizers",
+        "version": ">=",
+        "purl": "pkg:pypi/tokenizers@",
+        "bom-ref": "pypi/tokenizers@>="
+      },
+      {
+        "type": "library",
+        "name": "accelerate",
+        "version": "unspecified",
+        "purl": "pkg:pypi/accelerate",
+        "bom-ref": "pypi/accelerate@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "deepspeed",
+        "version": "unspecified",
+        "purl": "pkg:pypi/deepspeed",
+        "bom-ref": "pypi/deepspeed@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "numpy",
+        "version": "unspecified",
+        "purl": "pkg:pypi/numpy",
+        "bom-ref": "pypi/numpy@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "scipy",
+        "version": "unspecified",
+        "purl": "pkg:pypi/scipy",
+        "bom-ref": "pypi/scipy@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "sentencepiece",
+        "version": "unspecified",
+        "purl": "pkg:pypi/sentencepiece",
+        "bom-ref": "pypi/sentencepiece@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "wandb",
+        "version": "unspecified",
+        "purl": "pkg:pypi/wandb",
+        "bom-ref": "pypi/wandb@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "tensorboard",
+        "version": "unspecified",
+        "purl": "pkg:pypi/tensorboard",
+        "bom-ref": "pypi/tensorboard@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "optree",
+        "version": "unspecified",
+        "purl": "pkg:pypi/optree",
+        "bom-ref": "pypi/optree@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "matplotlib",
+        "version": "unspecified",
+        "purl": "pkg:pypi/matplotlib",
+        "bom-ref": "pypi/matplotlib@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "tqdm",
+        "version": "unspecified",
+        "purl": "pkg:pypi/tqdm",
+        "bom-ref": "pypi/tqdm@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "rich",
+        "version": "unspecified",
+        "purl": "pkg:pypi/rich",
+        "bom-ref": "pypi/rich@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "__version__",
+        "version": "= ",
+        "purl": "pkg:pypi/--version--@",
+        "bom-ref": "pypi/__version__@= "
+      }
+    ]
+  },
+  "elapsed_seconds": 5.35
+}
