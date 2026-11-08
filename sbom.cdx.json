@@ -1,0 +1,151 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:85950cc5-38f8-5711-b147-339eca18e7cf",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-13T20:32:25Z",
+    "component": {
+      "type": "application",
+      "name": "K_SAFERLHF",
+      "version": "e8cca16665ef",
+      "bom-ref": "pkg:generic/anticloud/K_SAFERLHF@e8cca16665ef",
+      "purl": "pkg:generic/anticloud/K_SAFERLHF@e8cca16665ef",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": "e8cca16665ef2340ac92c6514f05519310251581"
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": "https://github.com/PKU-Alignment/safe-rlhf.git"
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "torch",
+      "version": ">=",
+      "purl": "pkg:pypi/torch@",
+      "bom-ref": "pypi/torch@>="
+    },
+    {
+      "type": "library",
+      "name": "transformers",
+      "version": ">=",
+      "purl": "pkg:pypi/transformers@",
+      "bom-ref": "pypi/transformers@>="
+    },
+    {
+      "type": "library",
+      "name": "datasets",
+      "version": "unspecified",
+      "purl": "pkg:pypi/datasets",
+      "bom-ref": "pypi/datasets@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "tokenizers",
+      "version": ">=",
+      "purl": "pkg:pypi/tokenizers@",
+      "bom-ref": "pypi/tokenizers@>="
+    },
+    {
+      "type": "library",
+      "name": "accelerate",
+      "version": "unspecified",
+      "purl": "pkg:pypi/accelerate",
+      "bom-ref": "pypi/accelerate@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "deepspeed",
+      "version": "unspecified",
+      "purl": "pkg:pypi/deepspeed",
+      "bom-ref": "pypi/deepspeed@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "numpy",
+      "version": "unspecified",
+      "purl": "pkg:pypi/numpy",
+      "bom-ref": "pypi/numpy@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "scipy",
+      "version": "unspecified",
+      "purl": "pkg:pypi/scipy",
+      "bom-ref": "pypi/scipy@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "sentencepiece",
+      "version": "unspecified",
+      "purl": "pkg:pypi/sentencepiece",
+      "bom-ref": "pypi/sentencepiece@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "wandb",
+      "version": "unspecified",
+      "purl": "pkg:pypi/wandb",
+      "bom-ref": "pypi/wandb@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "tensorboard",
+      "version": "unspecified",
+      "purl": "pkg:pypi/tensorboard",
+      "bom-ref": "pypi/tensorboard@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "optree",
+      "version": "unspecified",
+      "purl": "pkg:pypi/optree",
+      "bom-ref": "pypi/optree@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "matplotlib",
+      "version": "unspecified",
+      "purl": "pkg:pypi/matplotlib",
+      "bom-ref": "pypi/matplotlib@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "tqdm",
+      "version": "unspecified",
+      "purl": "pkg:pypi/tqdm",
+      "bom-ref": "pypi/tqdm@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "rich",
+      "version": "unspecified",
+      "purl": "pkg:pypi/rich",
+      "bom-ref": "pypi/rich@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "__version__",
+      "version": "= ",
+      "purl": "pkg:pypi/--version--@",
+      "bom-ref": "pypi/__version__@= "
+    }
+  ]
+}
